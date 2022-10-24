@@ -1,0 +1,82 @@
+---
+title: "Video Engagement Report"
+author: "Group 6"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r load packages, echo=FALSE, warning=FALSE, message=FALSE}
+# Not sure if we need this libraries, but they are common ones
+library(tidyverse)
+library(stringr)
+library(gt)
+library(knitr)
+library(cowplot)
+library(magick)
+```
+
+# Introduction
+
+[Insert Introduction here]
+
+# Data set
+```{r, load-data, message=FALSE}
+here::i_am("engagementReport.Rmd")
+engagement <- readRDS(
+  file = here::here("output/data_clean.rds")
+)
+
+# maybe include code to display metadata here
+```
+
+# 1) Katie's Analysis
+### [Insert Title of Analysis - What question are you answering?]
+```{r katie}
+# katie_1 <- readRDS(
+#   file = here::here("output/katie1.rds")
+# )
+# 
+# katie_1
+```
+
+[Katie: Input description of analysis/table/figure.]
+
+# 2) Xinyue's Analysis
+### [Insert Title of Analysis - What question are you answering?]
+```{r xinyue}
+# xinyue_1 <- readRDS(
+#   file = here::here("output/xinyue1.rds")
+# )
+# 
+# xinyue_1
+```
+
+[Xinyue: Input description of analysis/table/figure.]
+
+# 3) Uzoamaka's Analysis
+### [Insert Title of Analysis - What question are you answering?]
+```{r uzoamaka}
+# uzoamaka_1 <- readRDS(
+#   file = here::here("output/uzoamaka1.rds")
+# )
+# 
+# uzoamaka_1
+```
+
+[Uzoamaka: Input description of analysis/table/figure.]
+
+
+# 4) Tiffany's Analysis
+### [Insert Title of Analysis - What question are you answering?]
+```{r tiffany}
+# tiffany_1 <- readRDS(
+#   file = here::here("output/tiffany1.rds")
+# )
+# 
+# tiffany_1
+```
+
+[Tiffany: Input description of analysis/table/figure.]
