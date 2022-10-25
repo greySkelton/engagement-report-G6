@@ -9,6 +9,7 @@ engagement <- readRDS(
 
 ####
 # Create a summarized data set with average views per week
+library(tidyverse)
 figure1 <- engagement %>% group_by(week) %>% summarise(average_views = mean(views), sd = sd(views))
 
 library(ggplot2)

@@ -33,16 +33,16 @@ engagement <- readRDS(
 ```
 
 # 1) Katie's Analysis
-### [Insert Title of Analysis - What question are you answering?]
+### Average number of views on weekly pre-read content
 ```{r katie}
-# katie_1 <- readRDS(
-#   file = here::here("output/katie1.rds")
-# )
-# 
-# katie_1
+ katie_1 <- readRDS(
+   file = here::here("output/katie1.rds")
+ )
+ 
+katie_1
 ```
 
-[Katie: Input description of analysis/table/figure.]
+This figure represents the average number of views for the pre-read content during any given week of INFO550. This plot displays the average number of views for weeks 1-6, representing the number of students that are engaging with the course materials before class time. We see that the first week has the lowest engagement, then there is an uptick on week 2, followed by a steady decline through week 6. The error bars represent the standard deviation among the videos that are made available for that specific week.
 
 # 2) Xinyue's Analysis
 ### [Insert Title of Analysis - What question are you answering?]
