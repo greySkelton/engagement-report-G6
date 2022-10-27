@@ -44,17 +44,19 @@ katie_1
 
 This figure represents the average number of views for the pre-read content during any given week of INFO550. This plot displays the average number of views for weeks 1-6, representing the number of students that are engaging with the course materials before class time. We see that the first week has the lowest engagement, then there is an uptick on week 2, followed by a steady decline through week 6. The error bars represent the standard deviation among the videos that are made available for that specific week.
 
-# 2) Xinyue's Analysis
-### [Insert Title of Analysis - What question are you answering?]
+# 2) Xinyue's Analysis  
+A linear model was fitted to test the potential factors on unique viewers. Week, video number and topics are re-categorized.    
+### Summary of Linear model
 ```{r xinyue}
-# xinyue_1 <- readRDS(
-#   file = here::here("output/xinyue1.rds")
-# )
-# 
-# xinyue_1
+xinyue_2 <- readRDS(
+  file = here::here("output/xinyue2.rds")
+ )
+#
+xinyue_2
 ```
 
-[Xinyue: Input description of analysis/table/figure.]
+From the results of the linear model, there are less viewers in week5&6 compared with week1&2 and when the video number is more than 10 or the video is re-uploaded.  
+2 topics are not defined because of singularities.  
 
 # 3) Uzoamaka's Analysis
 ### [Insert Title of Analysis - What question are you answering?]
