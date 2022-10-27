@@ -47,11 +47,17 @@ This figure represents the average number of views for the pre-read content duri
 # 2) Xinyue's Analysis
 ### [Insert Title of Analysis - What question are you answering?]
 ```{r xinyue}
-# xinyue_1 <- readRDS(
-#   file = here::here("output/xinyue1.rds")
-# )
-# 
-# xinyue_1
+xinyue_1 <- readRDS(
+   file = here::here("output/xinyue1.rds")
+ )
+ 
+xinyue_1
+
+xinyue_2 <- readRDS(
+   file = here::here("output/xinyue2.rds")
+ )
+ 
+xinyue_2
 ```
 
 [Xinyue: Input description of analysis/table/figure.]
