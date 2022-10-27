@@ -4,7 +4,7 @@ engagementReport.html: engagementReport.Rmd loadData katie xinyue uzoamaka tiffa
 katie: loadData
 	Rscript code/01_Katie.R
 	
-xinyue: loadData
+output/xinyue1.rds output/xinyue2.rds&: code/02_Xinyue.R
 	Rscript	code/02_Xinyue.R
 	
 uzoamaka: loadData
