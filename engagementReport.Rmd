@@ -62,11 +62,11 @@ From the results of the linear model, there are less viewers in week5&6 compared
 # 3) Uzoamaka's Analysis
 ### [Insert Title of Analysis - What question are you answering?]
 ```{r uzoamaka}
-# uzoamaka_1 <- readRDS(
-#   file = here::here("output/uzoamaka1.rds")
-# )
-# 
-# uzoamaka_1
+uzoamaka_1 <- readRDS(
+  file = here::here("output/uzoamaka1.rds")
+)
+ 
+uzoamaka_1
 ```
 
 [Uzoamaka: Input description of analysis/table/figure.]
