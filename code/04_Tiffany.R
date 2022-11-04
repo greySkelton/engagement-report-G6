@@ -8,8 +8,11 @@ engagement <- readRDS(
 
 ####
 
-# Analysis here to create a table or figure 
-# call the figure or table you create tiffany1, tiffany2, etc.
+
+views_per_topic <- course_engagement %>% 
+  
+  ggplot(course_engagement, aes(x=topic, y=views)) + 
+  geom_bar(stat = "identity")
 
 ####
 
