@@ -8,15 +8,14 @@ engagement <- readRDS(
 
 ####
 
-
-views_per_topic <- course_engagement %>% 
-  
-  ggplot(course_engagement, aes(x=topic, y=views)) + 
+library(tidyverse)
+views_per_topic <- engagement %>% 
+  ggplot(aes(x=topic, y=views)) + 
   geom_bar(stat = "identity")
 
 ####
 
 saveRDS(
-  fig1, 
+  views_per_topic, 
   file = here::here("output/tiffany1.rds")
 )

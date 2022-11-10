@@ -75,11 +75,11 @@ From the results of the linear model, there are less viewers in week5&6 compared
 # 4) Tiffany's Analysis
 ### [Insert Title of Analysis - What question are you answering?]
 ```{r tiffany}
- tiffany_1 <- readRDS(
+tiffany_1 <- readRDS(
    file = here::here("output/tiffany1.rds")
  )
  
- tiffany_1
+tiffany_1
 ```
 
 [Tiffany: Input description of analysis/table/figure.]

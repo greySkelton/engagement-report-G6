@@ -1,4 +1,4 @@
-engagementReport.html: engagementReport.Rmd loadData katie xinyue
+engagementReport.html: engagementReport.Rmd loadData katie xinyue tiffany
 	Rscript code/05_render_report.R
 
 katie: loadData
@@ -10,8 +10,8 @@ xinyue: loadData
 #uzoamaka: loadData
 #	Rscript  code/03_Uzoamaka.R
 	
-#tiffany: loadData
-#	Rscript	code/04_Tiffany.R
+tiffany: loadData
+	Rscript	code/04_Tiffany.R
 
 loadData: 
 	Rscript code/00_load_data.R
