@@ -10,20 +10,12 @@ engagement <- readRDS(
 
 # Analysis here to create a table or figure 
 # call the figure or table you create uzoamaka1, uzoamaka2, etc.
-pacman::p_load(
-  rio,            # import/export
-  here,           # file pathways
-  flextable,      # make HTML tables
-  officer,        # helper functions for tables
-  tidyverse)     # data management, summary, and visualization
 
-library(dbplyr)
 library(gt)
 library(tidyverse)
-library(glue)
 
 # Get summary values per topic-unique viewers group
-topicSummary <- course_engagement %>%
+topicSummary <- engagement %>%
   group_by(topic) %>%
   summarise(
     NumberOfVids = n(),                                               
@@ -33,8 +25,6 @@ fig1 <- topicSummary %>% gt() %>%
   cols_label(topic = "Video Topic",
              NumberOfVids = "Number of Videos",
              Mean_Views = "Mean Views")
-
-
 
 
 saveRDS(
