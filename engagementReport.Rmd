@@ -2,6 +2,9 @@
 title: "Video Engagement Report"
 author: "Group 6"
 output: html_document
+params: 
+    startpoint: 1
+    numweeks: 6
 ---
 
 ```{r setup, include=FALSE}
@@ -16,13 +19,33 @@ library(gt)
 library(knitr)
 library(cowplot)
 library(magick)
+library(ggplot2)
+library(lubridate)
+library(dplyr)
+library(labelled)
+library(gtsummary)
 ```
 
 # Introduction
 
-[Insert Introduction here]
+For our group project, we will complete the following tasks:
+
+(Task 1) Create a table that shows video engagement for each week.
+(Task 2) Create a visual that displays the information from the engagement table.
+(Task 3) Create a summary table showing the top 5 most and least popular videos, the length of those videos, and the week/topic.
+(Task 4) Build a model for predicting engagement based on topic, video_number, length.
+
+
+The element of customization of our workflow that will be implemented for this report is to use parameterization to create flexible output of the final product.
+
+The final product will include 2 to 3 tables and 1 to 2 figures. The first table will show each video and show the level of engagement in descending order. The figure will show the timeline on the x-axis and number of views on the y-axis so we can see the temporal trend of engagement. The second table will display the name of the videos that received the top engagement (1 to 5) and the worst engagement, designated by the reported views.  The predictive model will be shown as a formula and resulting table to show the predicted value of the coefficients. 
+
+The parameterization will allow for subsetting the report to allow for differing input of weeks to show specifics of the results by each course module.
 
 # Data set
+
+For this report, the data will be displayed starting from week `r param$startpoint` and include `r param$numweeks` weeks of data. 
+
 ```{r, load-data, message=FALSE}
 here::i_am("engagementReport.Rmd")
 engagement <- readRDS(
@@ -33,7 +56,7 @@ engagement <- readRDS(
 ```
 
 # 1) Katie's Analysis
-### Average number of views on weekly pre-read content
+### Average number of views on weekly pre-read content starting at week `r param$startpoint`
 ```{r katie}
  katie_1 <- readRDS(
    file = here::here("output/katie1.rds")
@@ -42,12 +65,12 @@ engagement <- readRDS(
 katie_1
 ```
 
-This figure represents the average number of views for the pre-read content during any given week of INFO550. This plot displays the average number of views for weeks 1-6, representing the number of students that are engaging with the course materials before class time. We see that the first week has the lowest engagement, then there is an uptick on week 2, followed by a steady decline through week 6. The error bars represent the standard deviation among the videos that are made available for that specific week.
+This figure represents the average number of views for the pre-read content during any given week of INFO550. This plot displays the average number of views for `r param$numweeks` weeks , representing the number of students that are engaging with the course materials before class time. The error bars represent the standard deviation among the videos that are made available for that specific week.
 
 # 2) Xinyue's Analysis  
 A linear model was fitted to test the potential factors on unique viewers. Week, video number and topics are re-categorized.   
 
-### Summary of Linear model
+### Summary of Linear model for `r param$numweeks`
 ```{r xinyue}
 xinyue_2 <- readRDS(
   file = here::here("output/xinyue2.rds")
@@ -56,7 +79,7 @@ xinyue_2 <- readRDS(
 xinyue_2
 ```
 
-From the results of the linear model, there are less viewers in week5&6 compared with week1&2 and when the video number is more than 10 or the video is re-uploaded.  
+From the results of the linear model, there are less viewers in the later weeks compared with week `r params$startpoint` and when the video number is more than 10 or the video is re-uploaded.  
 2 topics are not defined because of singularities.  
 
 # 3) Uzoamaka's Analysis
