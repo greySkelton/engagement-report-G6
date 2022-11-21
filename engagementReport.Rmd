@@ -30,10 +30,10 @@ library(gtsummary)
 
 For our group project, we will complete the following tasks:
 
-(Task 1) Create a table that shows video engagement for each week.
-(Task 2) Create a visual that displays the information from the engagement table.
-(Task 3) Create a summary table showing the top 5 most and least popular videos, the length of those videos, and the week/topic.
-(Task 4) Build a model for predicting engagement based on topic, video_number, length.
+1. Create a table that shows video engagement for each week.   
+2. Create a visual that displays the information from the engagement table.   
+3. Create a summary table showing the top 5 most and least popular videos, the length of those videos, and the week/topic.   
+4.  Build a model for predicting engagement based on topic, video_number, length.  
 
 
 The element of customization of our workflow that will be implemented for this report is to use parameterization to create flexible output of the final product.
@@ -44,7 +44,7 @@ The parameterization will allow for subsetting the report to allow for differing
 
 # Data set
 
-For this report, the data will be displayed starting from week `r param$startpoint` and include `r param$numweeks` weeks of data. 
+For this report, the data will be displayed starting from week `r params$startpoint` and include `r params$numweeks` weeks of data. 
 
 ```{r, load-data, message=FALSE}
 here::i_am("engagementReport.Rmd")
@@ -56,7 +56,7 @@ engagement <- readRDS(
 ```
 
 # 1) Katie's Analysis
-### Average number of views on weekly pre-read content starting at week `r param$startpoint`
+### Average number of views on weekly pre-read content starting at week `r params$startpoint`
 ```{r katie}
  katie_1 <- readRDS(
    file = here::here("output/katie1.rds")
@@ -65,12 +65,12 @@ engagement <- readRDS(
 katie_1
 ```
 
-This figure represents the average number of views for the pre-read content during any given week of INFO550. This plot displays the average number of views for `r param$numweeks` weeks , representing the number of students that are engaging with the course materials before class time. The error bars represent the standard deviation among the videos that are made available for that specific week.
+This figure represents the average number of views for the pre-read content during any given week of INFO550. This plot displays the average number of views for `r params$numweeks` weeks , representing the number of students that are engaging with the course materials before class time. The error bars represent the standard deviation among the videos that are made available for that specific week.
 
 # 2) Xinyue's Analysis  
 A linear model was fitted to test the potential factors on unique viewers. Week, video number and topics are re-categorized.   
 
-### Summary of Linear model for `r param$numweeks`
+### Summary of Linear model for `r params$numweeks`
 ```{r xinyue}
 xinyue_2 <- readRDS(
   file = here::here("output/xinyue2.rds")
