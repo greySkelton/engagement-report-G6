@@ -52,4 +52,5 @@ The customize-able feature for this report is allowing the user to include or ex
 
 Instructions to select exclusion or inclusion of code chunks:
 
-1. ...
+1. Open the R script: ` code/05_render_report.R`   
+2. Change the `param`s argument to `TRUE` if you would like code chunks to be included in the rendered `engagementReport.html` report. Change it to `FALSE` if you do not want code chunks to be included in the rendered `engagementReport.html` report.
