@@ -48,4 +48,8 @@ or you can enter the terminal command `make engagementReport.html`
 
 ## Instructions for customizing the report
 
-The customize-able feature for this report is TBD...
+The customize-able feature for this report is allowing the user to include or exclude code chunks in the outputted html.
+
+Instructions to select exclusion or inclusion of code chunks:
+
+1. ...

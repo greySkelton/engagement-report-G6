@@ -2,28 +2,12 @@
 title: "Video Engagement Report"
 author: "Group 6"
 output: html_document
-params: 
-    startpoint: 1
-    numweeks: 6
+params:
+    display: TRUE
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-```{r load packages, echo=FALSE, warning=FALSE, message=FALSE}
-# Not sure if we need this libraries, but they are common ones
-library(tidyverse)
-library(stringr)
-library(gt)
-library(knitr)
-library(cowplot)
-library(magick)
-library(ggplot2)
-library(lubridate)
-library(dplyr)
-library(labelled)
-library(gtsummary)
+knitr::opts_chunk$set(echo = params$display)
 ```
 
 # Introduction
@@ -32,19 +16,18 @@ For our group project, we will complete the following tasks:
 
 1. Create a table that shows video engagement for each week.   
 2. Create a visual that displays the information from the engagement table.   
-3. Create a summary table showing the top 5 most and least popular videos, the length of those videos, and the week/topic.   
+3. Create a summary table showing the mean views per video in each topic.     
 4.  Build a model for predicting engagement based on topic, video_number, length.  
 
 
 The element of customization of our workflow that will be implemented for this report is to use parameterization to create flexible output of the final product.
 
-The final product will include 2 to 3 tables and 1 to 2 figures. The first table will show each video and show the level of engagement in descending order. The figure will show the timeline on the x-axis and number of views on the y-axis so we can see the temporal trend of engagement. The second table will display the name of the videos that received the top engagement (1 to 5) and the worst engagement, designated by the reported views.  The predictive model will be shown as a formula and resulting table to show the predicted value of the coefficients. 
+The final product will include 2 to 3 tables and 1 to 2 figures. The first table will show each video and show the level of engagement in descending order. The figure will show the timeline on the x-axis and number of views on the y-axis so we can see the temporal trend of engagement. The second table will display the number of videos within each topic and the mean views per video in each topic. The predictive model will be shown as a formula and resulting table to show the predicted value of the coefficients. 
 
-The parameterization will allow for subsetting the report to allow for differing input of weeks to show specifics of the results by each course module.
+The parameterization allows for the inclusion or exclusion of the code in the html rendered report.
 
 # Data set
 
-For this report, the data will be displayed starting from week `r params$startpoint` and include `r params$numweeks` weeks of data. 
 
 ```{r, load-data, message=FALSE}
 here::i_am("engagementReport.Rmd")
@@ -56,7 +39,7 @@ engagement <- readRDS(
 ```
 
 # 1) Katie's Analysis
-### Average number of views on weekly pre-read content starting at week `r params$startpoint`
+### Average number of views on weekly pre-read content.
 ```{r katie}
  katie_1 <- readRDS(
    file = here::here("output/katie1.rds")
@@ -65,12 +48,12 @@ engagement <- readRDS(
 katie_1
 ```
 
-This figure represents the average number of views for the pre-read content during any given week of INFO550. This plot displays the average number of views for `r params$numweeks` weeks , representing the number of students that are engaging with the course materials before class time. The error bars represent the standard deviation among the videos that are made available for that specific week.
+This figure represents the average number of views for the pre-read content during any given week of INFO550. This plot displays the average number of views, representing the number of students that are engaging with the course materials before class time. The error bars represent the standard deviation among the videos that are made available for that specific week.
 
 # 2) Xinyue's Analysis  
 A linear model was fitted to test the potential factors on unique viewers. Week, video number and topics are re-categorized.   
 
-### Summary of Linear model for `r params$numweeks`
+### Summary of Linear model
 ```{r xinyue}
 xinyue_2 <- readRDS(
   file = here::here("output/xinyue2.rds")
@@ -79,11 +62,11 @@ xinyue_2 <- readRDS(
 xinyue_2
 ```
 
-From the results of the linear model, there are less viewers in the later weeks compared with week `r params$startpoint` and when the video number is more than 10 or the video is re-uploaded.  
+The results of the linear model are displayed above.  
 2 topics are not defined because of singularities.  
 
 # 3) Uzoamaka's Analysis
-### [Insert Title of Analysis - What question are you answering?]
+### Table for video count and mean views by topic
 ```{r uzoamaka}
 uzoamaka_1 <- readRDS(
   file = here::here("output/uzoamaka1.rds")
@@ -92,11 +75,11 @@ uzoamaka_1 <- readRDS(
 uzoamaka_1
 ```
 
-[Uzoamaka: Input description of analysis/table/figure.]
+The above table shows each unique video topic, the topic's mean views per video, and the video count per topic.
 
 
 # 4) Tiffany's Analysis
-### [Insert Title of Analysis - What question are you answering?]
+### Total Views per Topic
 ```{r tiffany}
 tiffany_1 <- readRDS(
    file = here::here("output/tiffany1.rds")
@@ -105,4 +88,4 @@ tiffany_1 <- readRDS(
 tiffany_1
 ```
 
-[Tiffany: Input description of analysis/table/figure.]
+The above figure shows the total amount of views that each topic received for all of that topic's videos.
